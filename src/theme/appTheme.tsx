@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     backgroundColor: 'red',
     justifyContent: 'center',
+    alignItems: 'center',
     padding: 10,
     marginRight: 10
   },
@@ -32,13 +33,17 @@ const styles = StyleSheet.create({
   },
   menuContainer: {
     marginVertical: 10,
-    marginHorizontal: 50
+    marginHorizontal: 20
   },
   menuButton: {
-    marginVertical: 10
+    marginVertical: 10,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
   },
   menuText: {
-    fontSize: 20
+    fontSize: 20,
+    color: colors.primary
   }
 });
 

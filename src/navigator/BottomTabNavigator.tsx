@@ -7,6 +7,8 @@ import { colors } from '../theme/appTheme';
 import { Platform, Text } from 'react-native';
 import TopTabNavigator from './TopTabNavigator';
 
+import Icon from 'react-native-vector-icons/Ionicons';
+
 const TabIOS = createBottomTabNavigator();
 
 const Tab = createMaterialBottomTabNavigator();
@@ -34,18 +36,18 @@ const BottomTabNavigatorIOS = () => {
           let iconName: string;
           switch (name) {
             case 'Tab1':
-              iconName = 'T1';
+              iconName = 'chatbox-ellipses-outline';
               break;
 
             case 'Tab2':
-              iconName = 'T2';
+              iconName = 'albums-outline';
               break;
 
             default:
-              iconName = 'ST';
+              iconName = 'list-outline';
               break;
           }
-          return <Text style={{ color }}> {iconName}</Text>;
+          return <Icon name={iconName} color={color} size={20} />;
         }
       })}
       defaultScreenOptions={{}}
@@ -67,14 +69,17 @@ const BottomTabNavigatorAndroid = () => {
         backgroundColor: colors.primary
       }}
       screenOptions={({ route }) => ({
+        tabBarColor: 'white',
         tabBarActiveTintColor: colors.primary,
         tabBarStyle: {
           elevation: 0,
           borderTopWidth: 0,
-          backgroundColor: colors.primary
+          backgroundColor: colors.primary,
+          color: 'white'
         },
         tabBarLabelStyle: {
-          fontSize: 15
+          fontSize: 15,
+          color: 'white'
         },
         headerStyle: {
           elevation: 0,
@@ -86,18 +91,18 @@ const BottomTabNavigatorAndroid = () => {
           let iconName: string;
           switch (name) {
             case 'Tab1':
-              iconName = 'T1';
+              iconName = 'chatbox-ellipses-outline';
               break;
 
             case 'Tab2':
-              iconName = 'T2';
+              iconName = 'albums-outline';
               break;
 
             default:
-              iconName = 'ST';
+              iconName = 'list-outline';
               break;
           }
-          return <Text style={{ color }}> {iconName}</Text>;
+          return <Icon name={iconName} color={color} size={20} />;
         }
       })}>
       <Tab.Screen name="Tab1" component={TopTabNavigator} />

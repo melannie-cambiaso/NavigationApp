@@ -9,13 +9,21 @@
  */
 
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { DrawerNavigator } from './src/navigator';
 
+const myTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: 'white'
+  }
+};
+
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={myTheme}>
       <DrawerNavigator />
     </NavigationContainer>
   );

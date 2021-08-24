@@ -18,6 +18,7 @@ export const authReducer = (
       };
     case 'LOG_OUT':
       return {
+        ...state,
         isLoggedIn: false,
         username: undefined,
         favoriteIcon: undefined

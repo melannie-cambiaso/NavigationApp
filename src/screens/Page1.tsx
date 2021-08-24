@@ -1,7 +1,8 @@
 import { DrawerScreenProps } from '@react-navigation/drawer';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Button, Text, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { AuthContext } from '../context/AuthContext';
 
 import styles, { colors } from '../theme/appTheme';
 
@@ -19,6 +20,8 @@ const Page1Screen = ({ navigation }: Props) => {
       )
     });
   }, []);
+
+  const { changeUserName } = useContext(AuthContext);
   return (
     <View style={styles.globalMargin}>
       <Text style={styles.title}>Page 1</Text>
@@ -32,24 +35,26 @@ const Page1Screen = ({ navigation }: Props) => {
       <View style={{ flexDirection: 'row' }}>
         <TouchableOpacity
           style={{ ...styles.button, backgroundColor: '#5856D6' }}
-          onPress={() =>
+          onPress={() => {
+            changeUserName('Pedro');
             navigation.navigate('PersonaScreen', {
               id: 1,
               nombre: 'Pedro'
-            })
-          }>
+            });
+          }}>
           <Icon name="man" size={20} color="white" />
           <Text style={styles.buttonText}>Pedro</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={{ ...styles.button, backgroundColor: '#FF9427' }}
-          onPress={() =>
+          onPress={() => {
+            changeUserName('María');
             navigation.navigate('PersonaScreen', {
               id: 2,
               nombre: 'María'
-            })
-          }>
+            });
+          }}>
           <Icon name="woman" size={20} color="white" />
           <Text style={styles.buttonText}>María</Text>
         </TouchableOpacity>
